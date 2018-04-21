@@ -232,7 +232,7 @@ server <- function(input, output) ({
 #  output$mytable <- DT::renderDataTable(arima_model(input$Arima))
 #  output$Garch <- renderPrint(list1(input$Garch))
   output$downrisk <- renderPrint(table.DownsideRisk(R = returns_log()[,1:n()], ci = 0.95, digits = 6, Rf = input$rfr))
-  output$CAPM <- renderPrint(table.CAPM(Ra = returns_log()[,1:n()], Rb = (return_log(getSymbols(Symbols = "^GSPC",src="yahoo", from = input$startDate, to = input$lastDate)[,4])),scale = "daily scale", digits = 6, Rf = input$rfr))
+  output$CAPM <- renderPrint(table.CAPM(Ra = returns_log()[,1:n()], Rb = (return_log(getSymbols(Symbols = "SNP",src="yahoo", from = input$startDate, to = input$lastDate)[,4])),scale = "daily scale", digits = 6, Rf = input$rfr))
   # output$crosscorr <- renderPrint(table.DownsideRisk(R = returns_log()[,1:n()], ci = 0.95, digits = 6, Rf = input$rfr))
   # output$crosscorr <- renderPrint(table.DownsideRisk(R = returns_log()[,1:n()], ci = 0.95, digits = 6, Rf = input$rfr))
   
