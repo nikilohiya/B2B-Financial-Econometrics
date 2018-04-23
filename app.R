@@ -110,12 +110,12 @@ ui <- fluidPage(
             "Portfolio Analytics",
             h2("Value at Risk"),
             verbatimTextOutput("Value"),
-            h2("Minimimum variance potfolio"),         
+            h2("Portfolio Weights"),         
             plotOutput("plot2"), 
             h4("Optimised weights for the given stocks in percenatges are"),
             verbatimTextOutput("wt"),
             verbatimTextOutput("tab"),
-            plotOutput("plot4"),
+#            plotOutput("plot4"),
             h6("References"),
             p("The application has solely been created for academic purposes only.")
         )
@@ -356,7 +356,7 @@ server <- function(input, output) ({
   output$plot2<-renderPlot(barplot(wts(),
                                    col="wheat",ylab="Weights", main ="Optimised weights" ))
   output$tab<-renderPrint(table.AnnualizedReturns(returns()))
-  output$plot4<-renderPlot(chart.TimeSeries(df(),main="Prices",legend.loc="topleft"))
+#  output$plot4<-renderPlot(chart.TimeSeries(df(),main="Prices",legend.loc="topleft"))
   
 })
 
